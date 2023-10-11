@@ -2,10 +2,6 @@ package main
 
 import "fmt"
 
-func helloHandler(w http.ResponseWriter) {
-
-}
-
 type nodeTree struct {
 	Data  int
 	Left  *nodeTree
@@ -30,23 +26,23 @@ func recPrint(node *nodeTree) {
 	recPrint(node.Left)
 }
 
-// func printNodes(root *nodeTree) {
-// 	if root == nil {
-// 		return
-// 	}
-//
-// 	stack := []*nodeTree{}
-//
-// 	current := root
-//
-// 	for current != nil || len(stack) > 0 {
-// 		stack = append(stack, current)
-// 		current = current.Left
-// 	}
-//
-// 	current = stack[len(stack)-1]
-// 	stack = stack[:len(stack)-1]
-// }
+func printNodes(root *nodeTree) {
+	if root == nil {
+		return
+	}
+
+	stack := []*nodeTree{}
+
+	current := root
+
+	for current != nil || len(stack) > 0 {
+		stack = append(stack, current)
+		current = current.Left
+	}
+
+	current = stack[len(stack)-1]
+	stack = stack[:len(stack)-1]
+}
 
 func main() {
 	node := newNode(5)
